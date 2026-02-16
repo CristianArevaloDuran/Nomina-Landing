@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+    --pri-color: #1867FF;
+    --sec-color: #B9FF17;
+    --accent-color: #FF3917;
+    --prim-text-color: #ffffff; 
+    /* --sec-text-color: ; */
+
+    --quicksand: 'Quicksand', sans-serif;
+    --zain: 'Zain', sans-serif;
+    --dongle: 'Dongle', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden
+}
+
+@layer components {
+    
+    main {
+        @apply w-full h-[300vh];
+    }
+
+    nav {
+        @apply flex justify-center items-center w-full fixed;
+
+        div {
+            @apply w-full flex flex-row bg-(--pri-color) justify-between items-center px-10 min-h-[70px] rounded-b-2xl;
+            box-shadow: 0 2px 10px #1953b9;
+        }
+        
+
+        .logo {
+            @apply flex flex-row justify-center items-center gap-[10px];
+            
+            p {
+                @apply text-(--prim-text-color) font-bold font-(family-name:--dongle) text-3xl pt-0.5;
+            }
+
+            svg {
+                @apply text-(--sec-color) w-[25px] h-[25px];
+            }
+        }
+
+        ul {
+            @apply flex flex-row gap-4;
+
+            li {
+                a {
+                    @apply text-(--prim-text-color) font-(family-name:--zain) text-lg
+                }
+            }
+        }
+
+
+    }
+}
