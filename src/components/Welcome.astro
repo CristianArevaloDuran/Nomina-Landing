@@ -1,8 +1,12 @@
+---
+import Button from "./Elements/Button.astro"
+---
+
 <section id="home">
 	<div class="intro">
-		<h1>Gestión de Nómina Inteligente: Menos Excel, Más Eficiencia.</h1>
+		<h1>Gestión de Nómina Inteligente: <br> <span class="highlight-red">Menos Excel,</span> <span class="highlight-green">Más Eficiencia.</span></h1>
 		<p>Automatiza el pago de tus colaboradores, cálculos de ley y seguridad social en un solo lugar. Cumplimiento legal garantizado sin complicaciones.</p>
-		<button>Conoce más</button>
+		<Button text='Conoce más' to="#about" />
 	</div>
 	<img src="/images/reference.png" alt="NominApp dashboard screenshot" draggable="false">
 </section>

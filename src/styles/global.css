@@ -5,7 +5,11 @@
     --sec-color: #B9FF17;
     --accent-color: #FF3917;
     --prim-text-color: #ffffff; 
+
     /* --sec-text-color: ; */
+
+    --shadow-color: #424242;
+    --glass-bg: #1869ffa8;
 
     --quicksand: 'Quicksand', sans-serif;
     --zain: 'Zain', sans-serif;
@@ -18,22 +22,36 @@ body {
     padding: 0;
     box-sizing: border-box;
     overflow-x: hidden;
-    background-color: #fafafa;
+    background-color: #fff6d6;
     scroll-behavior: smooth;
 }
 
 @layer components {
-    
+
+    .animated-button {
+        @apply px-10 py-6 rounded-md text-3xl font-bold font-(family-name:--darumadrop-one) bg-(--pri-color) text-(--prim-text-color);
+        box-shadow: 0 2px 3px var(--shadow-color)
+    }
+
+    .highlight-red {
+        @apply bg-(--accent-color) rounded-md px-4 text-(--prim-text-color)
+    }
+
+    .highlight-green {
+        @apply bg-(--sec-color) rounded-md px-4
+    }
+
     main {
-        @apply w-full h-[300vh];
+        @apply w-full;
+        scroll-behavior: smooth;
     }
 
     nav {
         @apply flex justify-center items-center w-full fixed z-100 mt-5;
 
         .nav-content {
-            @apply w-[95%] min-h-[70px]  flex flex-row bg-(--pri-color) justify-between items-center px-10 rounded-[50px];
-            box-shadow: 0 2px 5px var(--pri-color);
+            @apply w-[95%] min-h-[70px]  flex flex-row bg-(--glass-bg) justify-between items-center px-10 rounded-[50px] backdrop-blur-sm;
+            box-shadow: 0 0 5px var(--shadow-color);
         }
         
 
@@ -61,23 +79,38 @@ body {
     }
 
     #home {
-        @apply w-full min-h-dvh pt-[200px] flex flex-col items-center gap-20 relative;
+        @apply w-full min-h-dvh py-[200px]  flex flex-col items-center gap-20 relative;
+        background: #ffffff;
+        background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(235, 235, 235, 1) 50%, rgba(217, 217, 217, 1) 100%);
 
         .intro {
-            @apply w-full flex flex-col items-center gap-20;
+            @apply w-full flex flex-col items-center gap-10;
 
             h1 {
-                @apply font-(family-name:--darumadrop-one) w-[60%] text-6xl text-center
+                @apply font-(family-name:--darumadrop-one) w-[60%] text-6xl text-center leading-[100px]
             }
 
             p {
-                @apply font-(family-name:--quicksand) text-2xl w-[50%] text-center;
+                @apply font-(family-name:--quicksand) text-3xl w-[60%] text-center;
             }
         }
 
         img {
             @apply w-[70%] rounded-4xl;
-            box-shadow: 0 0 15px var(--pri-color);
+            box-shadow: 0 0 15px var(--shadow-color);
+        }
+    }
+
+    #about {
+        @apply bg-(--pri-color) w-full h-dvh flex justify-center items-center;
+        
+        .details {
+            @apply w-[80%] h-[80%] bg-(--prim-text-color) rounded-lg overflow-hidden;
+            box-shadow: 0 0 20px var(--shadow-color);
+
+            .header {
+                @apply flex flex-row items-center h-[70px] bg-(--sec-color) items-center justify-between px-10;
+            }
         }
     }
 }
