@@ -1,5 +1,5 @@
 <nav>
-    <div>
+    <div class="nav-content">
         <a href="#home" class="logo">
             <p>NominApp</p>
             <svg  xmlns="http://www.w3.org/2000/svg" width="24" height="24"  
@@ -11,6 +11,7 @@
         <ul>
             <li><a href="#home">Inicio</a></li>
             <li><a href="#about">Nosotros</a></li>
+            <li class="dash"><a href="#about">Dashboard</a></li>
         </ul>
     </div>  
 </nav>
@@ -28,15 +29,15 @@
             scrollTrigger: {
                 scrub: 1,
                 start: 'top top',
-                end: '+=200vh'
+                end: '+=150vh'
             }
         });
 
         navTl
             .to('div', {
-                y: 50,
-                width: '90%',
-                borderRadius: '50px'
+                y: 25,
+                width: '85%',
+                duration: 1
             })
     }, nav)
  
