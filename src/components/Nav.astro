@@ -25,6 +25,18 @@
     const nav = document.querySelector('nav')
 
     let navCtx = gsap.context(() => {
+
+        const navIntro = gsap.timeline();
+
+        navIntro
+            .from(nav, {
+                y:-150,
+                scale: .9,
+                ease: 'back.out(2)',
+                duration: .6,
+                delay: .6
+            })
+
         const navTl = gsap.timeline({
             scrollTrigger: {
                 scrub: 1,
@@ -34,9 +46,10 @@
         });
 
         navTl
-            .to('div', {
+            .to('.nav-content', {
                 y: 25,
-                width: '85%',
+                backgroundColor: '#1869ffa8',
+                width: '70%',
                 duration: 1
             })
     }, nav)

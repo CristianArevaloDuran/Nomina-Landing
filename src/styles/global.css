@@ -26,6 +26,10 @@ body {
     scroll-behavior: smooth;
 }
 
+html {
+    scroll-behavior: smooth !important;
+}
+
 @layer components {
 
     .animated-button {
@@ -50,7 +54,7 @@ body {
         @apply flex justify-center items-center w-full fixed z-100 mt-5;
 
         .nav-content {
-            @apply w-[95%] min-h-[70px]  flex flex-row bg-(--glass-bg) justify-between items-center px-10 rounded-[50px] backdrop-blur-sm;
+            @apply w-[95%] min-h-[70px]  flex flex-row bg-(--pri-color) justify-between items-center px-10 rounded-[50px] backdrop-blur-sm;
             box-shadow: 0 0 5px var(--shadow-color);
         }
         
@@ -79,12 +83,12 @@ body {
     }
 
     #home {
-        @apply w-full min-h-dvh py-[200px]  flex flex-col items-center gap-20 relative;
+        @apply w-full min-h-dvh py-[200px]  flex flex-col items-center relative;
         background: #ffffff;
         background: radial-gradient(circle, rgba(255, 255, 255, 1) 0%, rgba(235, 235, 235, 1) 50%, rgba(217, 217, 217, 1) 100%);
 
         .intro {
-            @apply w-full flex flex-col items-center gap-10;
+            @apply w-full flex flex-col items-center gap-10 mb-40;
 
             h1 {
                 @apply font-(family-name:--darumadrop-one) w-[60%] text-6xl text-center leading-[100px]
@@ -102,14 +106,14 @@ body {
     }
 
     #about {
-        @apply bg-(--pri-color) w-full h-dvh flex justify-center items-center;
+        @apply bg-(--pri-color) w-full min-h-dvh py-30 flex justify-center items-center;
         
         .details {
-            @apply w-[80%] h-[80%] bg-(--prim-text-color) rounded-4xl overflow-hidden;
+            @apply w-[80%] h-[80%] py-30 bg-(--prim-text-color) rounded-4xl overflow-hidden relative;
             box-shadow: 0 0 20px var(--shadow-color);
 
             .header {
-                @apply flex flex-row items-center h-[100px] bg-(--sec-color) items-center justify-between px-10;
+                @apply absolute w-full top-0 flex flex-row items-center h-[100px] bg-(--sec-color) items-center justify-between px-10;
 
                 p {
                     @apply font-(family-name:--darumadrop-one) font-bold text-4xl;
@@ -121,7 +125,25 @@ body {
             }
 
             .content {
-                @apply w-full h-full flex flex-col;
+                @apply w-full h-[100%] flex flex-col items-center justify-center pt-[100px];
+
+                ul {
+                    @apply mb-20 flex flex-col gap-5;
+
+                    li {
+                        @apply flex flex-row gap-3 items-center;
+
+                        p {
+                            @apply font-(family-name:--quicksand) text-3xl font-bold;
+                        }
+
+                        svg {
+                            @apply w-[50px] h-[50px] text-(--pri-color);
+                        }
+
+                    
+                    }
+                }
             }
         }
     }

@@ -6,7 +6,91 @@ import Button from "./Elements/Button.astro"
 	<div class="intro">
 		<h1>Gestión de Nómina Inteligente: <br> <span class="highlight-red">Menos Excel,</span> <span class="highlight-green">Más Eficiencia.</span></h1>
 		<p>Automatiza el pago de tus colaboradores, cálculos de ley y seguridad social en un solo lugar. Cumplimiento legal garantizado sin complicaciones.</p>
-		<Button text='Conoce más' to="#about" />
+		<Button text='Conoce más' to="#about" class="button" />
 	</div>
 	<img src="/images/reference.png" alt="NominApp dashboard screenshot" draggable="false">
 </section>
+
+<script>
+	import { fade } from 'astro:transitions';
+import gsap from 'gsap'
+	import ScrollTrigger from 'gsap/ScrollTrigger';
+
+	gsap.registerPlugin(ScrollTrigger);
+
+	const home = document.getElementById('home');
+
+	const ctx = gsap.context(()=>{
+		const homeIntro = gsap.timeline();
+
+		homeIntro
+			.from('img', {
+				y:250,
+				autoAlpha: 0,
+				scale: .8,
+				delay: .6,
+				duration: .6,
+				ease: 'back.out'
+			})
+			.from('.intro h1', {
+				scale: .8,
+				autoAlpha: 0,
+				opacity: 0
+			}, '<')
+			.from('.intro p', {
+				scale: .8,
+				autoAlpha: 0,
+				opacity: 0
+			}, '<')
+			.from('.intro a', {
+				scale: .8,
+				autoAlpha: 0,
+				opacity: 0
+			}, '<')
+
+		const scrollTl = gsap.timeline({
+			scrollTrigger: {
+				scrub: 1,
+				start: 'top top'
+			}
+		})
+
+		scrollTl
+			.fromTo('img', {
+				scale: 1,
+				y: 0,
+				boxShadow: '0 0 15px var(--shadow-color)'
+			}, {
+				scale: 1.1,
+				y: -80,
+				boxShadow: '0 0 50px var(--shadow-color)'
+			})
+			.fromTo('.intro h1', {
+				y: 0,
+				scale: 1,
+				opacity: 1
+			}, {
+				y: -20,
+				scale: .9,
+				opacity: .7
+			}, '<')
+			.fromTo('.intro p', {
+				y: 0,
+				scale: 1,
+				opacity: 1
+			}, {
+				y: -20,
+				scale: .9,
+				opacity: .7
+			}, '<')
+			.fromTo('.intro a',  {
+				y: 0,
+				scale: 1,
+				opacity: 1
+			},{
+				y: -20,
+				scale: .9,
+				opacity: .7
+			}, '<')
+	}, home);
+</script>
